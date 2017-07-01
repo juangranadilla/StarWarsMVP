@@ -1,4 +1,4 @@
-package com.juangm.bottomnavigationmvp;
+package com.juangm.starwarsmvp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

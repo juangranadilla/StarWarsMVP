@@ -1,4 +1,4 @@
-package com.juangm.bottomnavigationmvp;
+package com.juangm.starwarsmvp;
 
 import org.junit.Test;
 

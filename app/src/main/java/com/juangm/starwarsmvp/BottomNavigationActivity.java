@@ -1,4 +1,4 @@
-package com.juangm.bottomnavigationmvp;
+package com.juangm.starwarsmvp;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,19 +8,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.juangm.bottomnavigationmvp.Favorites.FavoritesFragment;
-import com.juangm.bottomnavigationmvp.Music.MusicFragment;
-import com.juangm.bottomnavigationmvp.Schedules.SchedulesFragment;
+import com.juangm.starwarsmvp.Favorites.PlanetsFragment;
+import com.juangm.starwarsmvp.Music.StarshipsFragment;
+import com.juangm.starwarsmvp.Schedules.CharactersFragment;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
-    // It seems that BottomNavigationView doesn't work well with ButterKnife
+    // It seems that BottomNavigationView doesn't work with ButterKnife
     //@BindView(R.id.bottom_navigation)
     //BottomNavigationView bottomNavigationView;
 
-    FavoritesFragment favoritesFragment;
-    SchedulesFragment schedulesFragment;
-    MusicFragment musicFragment;
+    PlanetsFragment planetsFragment;
+    CharactersFragment charactersFragment;
+    StarshipsFragment starshipsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +30,25 @@ public class BottomNavigationActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
 
-        favoritesFragment = new FavoritesFragment();
-        schedulesFragment = new SchedulesFragment();
-        musicFragment = new MusicFragment();
+        planetsFragment = new PlanetsFragment();
+        charactersFragment = new CharactersFragment();
+        starshipsFragment = new StarshipsFragment();
 
-        showFragment(favoritesFragment);
+        showFragment(planetsFragment);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.action_favorites:
-                                showFragment(favoritesFragment);
+                            case R.id.action_planets:
+                                showFragment(planetsFragment);
                                 break;
                             case R.id.action_schedules:
-                                showFragment(schedulesFragment);
+                                showFragment(charactersFragment);
                                 break;
                             case R.id.action_music:
-                                showFragment(musicFragment);
+                                showFragment(starshipsFragment);
                                 break;
                         }
                         return false;

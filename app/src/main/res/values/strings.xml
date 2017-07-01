@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Bottom Navigation Sample</string>
+    <string name="app_name">Star Wars MVP</string>
 
-    <string name="text_favorites">Favorites</string>
-    <string name="text_schedules">Schedules</string>
-    <string name="text_music">Music</string>
+    <string name="text_planets">Planets</string>
+    <string name="text_characters">Characters</string>
+    <string name="text_starships">Starships</string>
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->

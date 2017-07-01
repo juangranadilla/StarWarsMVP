@@ -1,4 +1,4 @@
-package com.juangm.bottomnavigationmvp.Schedules;
+package com.juangm.starwarsmvp.Schedules;
 
 
 import android.os.Bundle;
@@ -7,13 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.juangm.bottomnavigationmvp.R;
+import com.juangm.starwarsmvp.R;
 
 
-public class SchedulesFragment extends Fragment {
+public class CharactersFragment extends Fragment {
 
 
-    public SchedulesFragment() {
+    public CharactersFragment() {
         // Required empty public constructor
     }
 
@@ -22,7 +22,7 @@ public class SchedulesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedules, container, false);
+        return inflater.inflate(R.layout.fragment_characters, container, false);
     }
 
 }
