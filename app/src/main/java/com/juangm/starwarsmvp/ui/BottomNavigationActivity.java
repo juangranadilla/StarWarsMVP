@@ -1,4 +1,4 @@
-package com.juangm.starwarsmvp;
+package com.juangm.starwarsmvp.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,9 +8,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.juangm.starwarsmvp.Favorites.PlanetsFragment;
-import com.juangm.starwarsmvp.Music.StarshipsFragment;
-import com.juangm.starwarsmvp.Schedules.CharactersFragment;
+import com.juangm.starwarsmvp.R;
+import com.juangm.starwarsmvp.ui.Characters.CharactersFragment;
+import com.juangm.starwarsmvp.ui.Planets.PlanetsFragment;
+import com.juangm.starwarsmvp.ui.Starships.StarshipsFragment;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
