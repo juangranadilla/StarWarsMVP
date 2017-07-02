@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.juangm.starwarsmvp.ui.BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
