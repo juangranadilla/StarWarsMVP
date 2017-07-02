@@ -1,4 +1,4 @@
-package com.juangm.starwarsmvp.ui.Characters;
+package com.juangm.starwarsmvp.ui.starships;
 
 
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import com.juangm.starwarsmvp.R;
 
 
-public class CharactersFragment extends Fragment {
+public class StarshipsFragment extends Fragment {
 
 
-    public CharactersFragment() {
+    public StarshipsFragment() {
         // Required empty public constructor
     }
 
@@ -22,7 +22,7 @@ public class CharactersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_characters, container, false);
+        return inflater.inflate(R.layout.fragment_starships, container, false);
     }
 
 }
