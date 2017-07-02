@@ -3,6 +3,7 @@ package com.juangm.starwarsmvp.data.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Planet {
@@ -16,8 +17,8 @@ public class Planet {
     private String terrain;
     private String surface_water;
     private String population;
-    private ArrayList<String> residents;
-    private ArrayList<String> films;
+    private List<String> residents;
+    private List<String> films;
     private String created;
     private String edited;
     private String url;
@@ -94,7 +95,7 @@ public class Planet {
         this.population = population;
     }
 
-    public ArrayList<String> getResidents() {
+    public List<String> getResidents() {
         return residents;
     }
 
@@ -102,7 +103,7 @@ public class Planet {
         this.residents = residents;
     }
 
-    public ArrayList<String> getFilms() {
+    public List<String> getFilms() {
         return films;
     }
 

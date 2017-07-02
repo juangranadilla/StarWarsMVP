@@ -14,7 +14,7 @@ import com.juangm.starwarsmvp.R;
 import com.juangm.starwarsmvp.data.models.Planet;
 import com.juangm.starwarsmvp.ui.planets.presenter.PlanetsPresenter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +46,7 @@ public class PlanetsFragment extends Fragment implements IPlanetsView {
         return view;
     }
 
-    private void setRecyclerAdapter(ArrayList<Planet> planets) {
+    private void setRecyclerAdapter(List<Planet> planets) {
         progressBar.setVisibility(View.GONE);
         planetsRecyclerView.setVisibility(View.VISIBLE);
         PlanetsAdapter planetsAdapter = new PlanetsAdapter(getContext(), planets);
@@ -55,7 +55,7 @@ public class PlanetsFragment extends Fragment implements IPlanetsView {
     }
 
     @Override
-    public void onPlanetsLoadedSuccess(ArrayList<Planet> planets) {
+    public void onPlanetsLoadedSuccess(List<Planet> planets) {
         Log.d(TAG, "Received planets: " + planets.size());
         setRecyclerAdapter(planets);
     }

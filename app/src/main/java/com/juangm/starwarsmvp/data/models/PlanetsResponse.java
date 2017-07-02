@@ -3,6 +3,7 @@ package com.juangm.starwarsmvp.data.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PlanetsResponse {
@@ -10,7 +11,7 @@ public class PlanetsResponse {
     private int count;
     private String next;
     private String previous;
-    private ArrayList<Planet> results = new ArrayList<>();
+    private List<Planet> results = new ArrayList<>();
 
     public int getCount() {
         return count;
@@ -36,7 +37,7 @@ public class PlanetsResponse {
         this.previous = previous;
     }
 
-    public ArrayList<Planet> getResults() {
+    public List<Planet> getResults() {
         return results;
     }
 

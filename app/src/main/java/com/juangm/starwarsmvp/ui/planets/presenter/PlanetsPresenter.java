@@ -5,7 +5,9 @@ import com.juangm.starwarsmvp.ui.planets.interactor.IPlanetsInteractor;
 import com.juangm.starwarsmvp.ui.planets.interactor.PlanetsInteractor;
 import com.juangm.starwarsmvp.ui.planets.view.IPlanetsView;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class PlanetsPresenter implements IPlanetsPresenter, IPlanetsInteractor {
 
@@ -23,7 +25,13 @@ public class PlanetsPresenter implements IPlanetsPresenter, IPlanetsInteractor {
     }
 
     @Override
-    public void onNetworkSuccess(ArrayList<Planet> planets) {
+    public void onNetworkSuccess(List<Planet> planets) {
+        Collections.sort(planets, new Comparator<Planet>() {
+            @Override
+            public int compare(Planet o1, Planet o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
         view.onPlanetsLoadedSuccess(planets);
     }
 
