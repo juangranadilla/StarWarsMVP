@@ -13,11 +13,13 @@ import com.juangm.starwarsmvp.ui.characters.CharactersFragment;
 import com.juangm.starwarsmvp.ui.planets.view.PlanetsFragment;
 import com.juangm.starwarsmvp.ui.starships.StarshipsFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class BottomNavigationActivity extends AppCompatActivity {
 
-    // It seems that BottomNavigationView doesn't work with ButterKnife
-    //@BindView(R.id.bottom_navigation)
-    //BottomNavigationView bottomNavigationView;
+    @BindView(R.id.bottom_navigation)
+    BottomNavigationView bottomNavigationView;
 
     PlanetsFragment planetsFragment;
     CharactersFragment charactersFragment;
@@ -28,8 +30,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottom_navigation);
+        ButterKnife.bind(this);
 
         planetsFragment = new PlanetsFragment();
         charactersFragment = new CharactersFragment();

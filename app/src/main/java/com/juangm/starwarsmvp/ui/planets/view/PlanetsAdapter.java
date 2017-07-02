@@ -1,0 +1,73 @@
+package com.juangm.starwarsmvp.ui.planets.view;
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.juangm.starwarsmvp.R;
+import com.juangm.starwarsmvp.data.models.Planet;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class PlanetsAdapter extends RecyclerView.Adapter<PlanetsAdapter.ViewHolder> {
+
+    private List<Planet> mPlanets;
+    private Context mContext;
+
+    public PlanetsAdapter(Context context, List<Planet> contacts) {
+        mPlanets = contacts;
+        mContext = context;
+    }
+
+    @Override
+    public PlanetsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View contactView = inflater.inflate(R.layout.item_planet, parent, false);
+
+        return new ViewHolder(contactView);
+    }
+
+    @Override
+    public void onBindViewHolder(PlanetsAdapter.ViewHolder viewHolder, int position) {
+        Planet planet = mPlanets.get(position);
+
+        TextView tvName = viewHolder.nameTextView;
+        TextView tvTerrain = viewHolder.terrainTextView;
+        TextView tvClimate = viewHolder.climateTextView;
+
+        tvName.setText(planet.getName());
+        tvTerrain.setText(planet.getTerrain());
+        tvClimate.setText(planet.getClimate());
+    }
+
+    // Returns the total count of items in the list
+    @Override
+    public int getItemCount() {
+        return mPlanets.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.tv_planet_name)
+        public TextView nameTextView;
+
+        @BindView(R.id.tv_planet_terrain)
+        public TextView terrainTextView;
+
+        @BindView(R.id.tv_planet_climate)
+        public TextView climateTextView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+}
