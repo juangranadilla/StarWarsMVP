@@ -1,7 +1,12 @@
 package com.juangm.starwarsmvp.ui.planets.interactor;
 
+import com.juangm.starwarsmvp.data.models.Planet;
 import com.juangm.starwarsmvp.data.models.PlanetsResponse;
 import com.juangm.starwarsmvp.data.network.StarWarsClient;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +29,14 @@ public class PlanetsInteractor implements Callback<PlanetsResponse> {
     @Override
     public void onResponse(Call<PlanetsResponse> call, Response<PlanetsResponse> response) {
         if(response.body().getResults() != null) {
-            listener.onNetworkSuccess(response.body().getResults());
+            List<Planet> planetList = response.body().getResults();
+            Collections.sort(planetList, new Comparator<Planet>() {
+                @Override
+                public int compare(Planet o1, Planet o2) {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
+            listener.onNetworkSuccess(planetList);
         } else {
             listener.onNetworkFailure();
         }
