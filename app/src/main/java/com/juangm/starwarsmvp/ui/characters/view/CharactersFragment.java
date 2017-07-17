@@ -1,4 +1,5 @@
-package com.juangm.starwarsmvp.ui.planets.view;
+package com.juangm.starwarsmvp.ui.characters.view;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.juangm.starwarsmvp.R;
-import com.juangm.starwarsmvp.data.models.Planet;
-import com.juangm.starwarsmvp.ui.planets.presenter.PlanetsPresenter;
+import com.juangm.starwarsmvp.data.models.Character;
+import com.juangm.starwarsmvp.ui.characters.Presenter.CharactersPresenter;
 import com.juangm.starwarsmvp.ui.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.List;
@@ -20,37 +21,38 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PlanetsFragment extends Fragment implements IPlanetsView {
 
-    @BindView(R.id.rv_planets)
+public class CharactersFragment extends Fragment implements ICharactersView {
+
+    @BindView(R.id.rv_characters)
     RecyclerView recycler;
 
-    @BindView(R.id.progress_planets)
+    @BindView(R.id.progress_characters)
     ProgressBar progressBar;
 
-    private String TAG = PlanetsFragment.class.getName();
-    private PlanetsPresenter planetsPresenter;
+    private String TAG = CharactersFragment.class.getName();
+    private CharactersPresenter charactersPresenter;
     private EndlessRecyclerViewScrollListener scrollListener;
 
-    public PlanetsFragment() {
-        planetsPresenter = new PlanetsPresenter(this);
+    public CharactersFragment() {
+        charactersPresenter = new CharactersPresenter(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_planets, container, false);
+        View view = inflater.inflate(R.layout.fragment_characters, container, false);
         ButterKnife.bind(this, view);
 
-        planetsPresenter.loadPlanets();
+        charactersPresenter.loadCharacters();
 
         return view;
     }
 
-    private void setRecyclerAdapter(List<Planet> planets) {
+    private void setRecyclerAdapter(List<Character> characters) {
         progressBar.setVisibility(View.GONE);
         recycler.setVisibility(View.VISIBLE);
-        PlanetsAdapter planetsAdapter = new PlanetsAdapter(getContext(), planets);
-        recycler.setAdapter(planetsAdapter);
+        CharactersAdapter charactersAdapter = new CharactersAdapter(getContext(), characters);
+        recycler.setAdapter(charactersAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recycler.setLayoutManager(linearLayoutManager);
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
@@ -63,13 +65,13 @@ public class PlanetsFragment extends Fragment implements IPlanetsView {
     }
 
     @Override
-    public void onPlanetsLoadedSuccess(List<Planet> planets) {
-        Log.d(TAG, "Received planets: " + planets.size());
-        setRecyclerAdapter(planets);
+    public void onCharactersLoadedSuccess(List<Character> characters) {
+        Log.d(TAG, "Received characters: " + characters.size());
+        setRecyclerAdapter(characters);
     }
 
     @Override
-    public void onPlanetsLoadedError() {
-        Log.d(TAG, "Error receiving planets");
+    public void onCharactersLoadedError() {
+
     }
 }

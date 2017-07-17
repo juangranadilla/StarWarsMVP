@@ -1,4 +1,4 @@
-package com.juangm.starwarsmvp.ui.planets.view;
+package com.juangm.starwarsmvp.ui.starships.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.juangm.starwarsmvp.R;
-import com.juangm.starwarsmvp.data.models.Planet;
-import com.juangm.starwarsmvp.ui.planets.presenter.PlanetsPresenter;
+import com.juangm.starwarsmvp.data.models.Starship;
+import com.juangm.starwarsmvp.ui.starships.presenter.StarshipsPresenter;
 import com.juangm.starwarsmvp.ui.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.List;
@@ -20,37 +20,37 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PlanetsFragment extends Fragment implements IPlanetsView {
+public class StarshipsFragment extends Fragment implements IStarshipsView {
 
-    @BindView(R.id.rv_planets)
+    @BindView(R.id.rv_starships)
     RecyclerView recycler;
 
-    @BindView(R.id.progress_planets)
+    @BindView(R.id.progress_starships)
     ProgressBar progressBar;
 
-    private String TAG = PlanetsFragment.class.getName();
-    private PlanetsPresenter planetsPresenter;
+    private String TAG = StarshipsFragment.class.getName();
+    private StarshipsPresenter starshipsPresenter;
     private EndlessRecyclerViewScrollListener scrollListener;
 
-    public PlanetsFragment() {
-        planetsPresenter = new PlanetsPresenter(this);
+    public StarshipsFragment() {
+        starshipsPresenter = new StarshipsPresenter(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_planets, container, false);
+        View view = inflater.inflate(R.layout.fragment_starships, container, false);
         ButterKnife.bind(this, view);
 
-        planetsPresenter.loadPlanets();
+        starshipsPresenter.loadStarships();
 
         return view;
     }
 
-    private void setRecyclerAdapter(List<Planet> planets) {
+    private void setRecyclerAdapter(List<Starship> starships) {
         progressBar.setVisibility(View.GONE);
         recycler.setVisibility(View.VISIBLE);
-        PlanetsAdapter planetsAdapter = new PlanetsAdapter(getContext(), planets);
-        recycler.setAdapter(planetsAdapter);
+        StarshipsAdapter starshipsAdapter = new StarshipsAdapter(getContext(), starships);
+        recycler.setAdapter(starshipsAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recycler.setLayoutManager(linearLayoutManager);
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
@@ -63,13 +63,13 @@ public class PlanetsFragment extends Fragment implements IPlanetsView {
     }
 
     @Override
-    public void onPlanetsLoadedSuccess(List<Planet> planets) {
-        Log.d(TAG, "Received planets: " + planets.size());
-        setRecyclerAdapter(planets);
+    public void onStarshipsLoadedSuccess(List<Starship> starships) {
+        Log.d(TAG, "Received starships: " + starships.size());
+        setRecyclerAdapter(starships);
     }
 
     @Override
-    public void onPlanetsLoadedError() {
-        Log.d(TAG, "Error receiving planets");
+    public void onStarshipsLoadedError() {
+
     }
 }

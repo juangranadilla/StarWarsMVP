@@ -1,17 +1,18 @@
-package com.juangm.starwarsmvp.data.models;
+package com.juangm.starwarsmvp.data.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.juangm.starwarsmvp.data.models.Character;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PlanetsResponse {
+public class PeopleResponse {
 
     private int count;
     private String next;
     private String previous;
-    private List<Planet> results = new ArrayList<>();
+    private List<Character> results = new ArrayList<>();
 
     public int getCount() {
         return count;
@@ -37,11 +38,11 @@ public class PlanetsResponse {
         this.previous = previous;
     }
 
-    public List<Planet> getResults() {
+    public List<Character> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<Planet> results) {
+    public void setResults(List<Character> results) {
         this.results = results;
     }
 }

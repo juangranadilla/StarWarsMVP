@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     android:background="@color/gray_background">
 
-    <ImageView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_starships"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_starship_white_24dp"
-        android:padding="64sp"/>
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progress_starships"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

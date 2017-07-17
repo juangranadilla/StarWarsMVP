@@ -9,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.juangm.starwarsmvp.R;
-import com.juangm.starwarsmvp.ui.characters.CharactersFragment;
+import com.juangm.starwarsmvp.ui.characters.view.CharactersFragment;
 import com.juangm.starwarsmvp.ui.planets.view.PlanetsFragment;
-import com.juangm.starwarsmvp.ui.starships.StarshipsFragment;
+import com.juangm.starwarsmvp.ui.starships.view.StarshipsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -20,8 +20,8 @@ public class PlanetsAdapter extends RecyclerView.Adapter<PlanetsAdapter.ViewHold
     private List<Planet> mPlanets;
     private Context mContext;
 
-    public PlanetsAdapter(Context context, List<Planet> contacts) {
-        mPlanets = contacts;
+    public PlanetsAdapter(Context context, List<Planet> planets) {
+        mPlanets = planets;
         mContext = context;
     }
 
@@ -30,9 +30,9 @@ public class PlanetsAdapter extends RecyclerView.Adapter<PlanetsAdapter.ViewHold
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View contactView = inflater.inflate(R.layout.item_planet, parent, false);
+        View planetView = inflater.inflate(R.layout.item_planet, parent, false);
 
-        return new ViewHolder(contactView);
+        return new ViewHolder(planetView);
     }
 
     @Override

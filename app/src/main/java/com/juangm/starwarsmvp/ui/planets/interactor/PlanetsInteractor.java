@@ -1,7 +1,7 @@
 package com.juangm.starwarsmvp.ui.planets.interactor;
 
 import com.juangm.starwarsmvp.data.models.Planet;
-import com.juangm.starwarsmvp.data.models.PlanetsResponse;
+import com.juangm.starwarsmvp.data.models.responses.PlanetsResponse;
 import com.juangm.starwarsmvp.data.network.StarWarsClient;
 
 import java.util.Collections;
